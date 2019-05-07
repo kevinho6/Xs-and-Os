@@ -4,12 +4,12 @@ import Square from './Square';
 class Board extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { squares: Array(9).fill(null), userTurn: true };
+    this.state = { squares: Array(9).fill(null) };
     this.resetGame = this.resetGame.bind(this);
   }
 
   resetGame() {
-    this.setState({ squares: Array(9).fill(null), userTurn: true });
+    this.setState({ squares: Array(9).fill(null) });
   }
 
   handleClick(i) {
@@ -17,8 +17,13 @@ class Board extends React.Component {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = this.state.userTurn ? 'X' : 'O';
-    this.setState({ squares: squares, userTurn: !this.state.userTurn });
+    squares[i] = 'X';
+
+    const computerMove = minimax(squares, 'O');
+
+    squares[computerMove.index] = 'O';
+
+    this.setState({ squares: squares });
   }
 
   renderSquare(i) {
@@ -36,14 +41,15 @@ class Board extends React.Component {
     if (winner === 'Tie') {
       status = winner + '!';
     } else if (winner) {
-      status = 'Winner: ' + winner;
+      status = winner + ' Wins!';
     } else {
-      status = 'Player Turn: ' + (this.state.userTurn ? 'X' : 'O');
+      status = '';
     }
 
     return (
       <div>
         <div className="status">{status}</div>
+        <br />
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -66,9 +72,6 @@ class Board extends React.Component {
 }
 
 function calculateWinner(squares) {
-  if (squares.filter(a => a === null).length === 0) {
-    return 'Tie';
-  }
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -85,11 +88,13 @@ function calculateWinner(squares) {
       return squares[a];
     }
   }
+  if (squares.filter(a => a === null).length === 0) {
+    return 'Tie';
+  }
   return null;
 }
 
-function emptySpaces() {
-  const board = this.state.squares;
+function emptySpaces(board) {
   const spaces = [];
   for (let i = 0; i < board.length; i++) {
     if (board[i] === null) {
@@ -102,10 +107,9 @@ function emptySpaces() {
 function minimax(newBoard, player) {
   const availSpots = emptySpaces(newBoard);
 
-  // checks for the terminal states such as win, lose, and tie and returning a value accordingly
-  if (calculateWinner() === 'X') {
+  if (calculateWinner(newBoard) === 'X') {
     return { score: -10 };
-  } else if (calculateWinner() === 'O') {
+  } else if (calculateWinner(newBoard) === 'O') {
     return { score: 10 };
   } else if (availSpots.length === 0) {
     return { score: 0 };
@@ -122,10 +126,10 @@ function minimax(newBoard, player) {
       result = minimax(newBoard, 'X');
       move.score = result.score;
     } else {
-      result = minimax(newBoard, 'X');
+      result = minimax(newBoard, 'O');
       move.score = result.score;
     }
-    newBoard[availSpots[i]] = ' ';
+    newBoard[availSpots[i]] = null;
     moves.push(move);
   }
   let bestMove;
