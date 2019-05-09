@@ -1,0 +1,13 @@
+.status {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-again {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
