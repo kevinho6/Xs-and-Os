@@ -4,10 +4,10 @@ Tic-Tac-Toe with AI.
 
 ## Instructions to Run Locally
 
-In the project directory, you can run in separate terminal windows:
+In the project directory, you run (in separate terminal windows):
 
-###`node server.js` to start the Express Server
-###`npm start` to start the Webpack Development Server
+### `node server.js` to start the Express Server
+### `npm start` to start the Webpack Development Server
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
@@ -33,7 +33,22 @@ Overall, I'm satisfied with the results of this project. Along the way I definit
 
 ## Resources
 
-Boilerplate Code - https://github.com/facebook/create-react-app
-Starter Tutorial - https://reactjs.org/tutorial/tutorial.html
-Minimax Algorithm - https://medium.freecodecamp.org/how-to-make-your-tic-tac-toe-game-unbeatable-by-using-the-minimax-algorithm-9d690bad4b37 https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/
-Deployment - https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/ https://dev.to/loujaybee/using-create-react-app-with-express
+Boilerplate Code
+
+https://github.com/facebook/create-react-app
+
+Starter Tutorial
+
+https://reactjs.org/tutorial/tutorial.html
+
+Minimax Algorithm
+
+https://medium.freecodecamp.org/how-to-make-your-tic-tac-toe-game-unbeatable-by-using-the-minimax-algorithm-9d690bad4b37 
+
+https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/
+
+Deployment
+
+https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/
+
+https://dev.to/loujaybee/using-create-react-app-with-express
