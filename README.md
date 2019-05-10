@@ -4,12 +4,11 @@ Tic-Tac-Toe with AI.
 
 ## Instructions to Run Locally
 
-In the project directory, you run (in separate terminal windows):
+In the project directory, run:
 
-### `node server.js` to start the Express Server
-### `npm start` to start the Webpack Development Server
+### `npm start` to start the Express Server
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
 ## Introduction & Context
 
