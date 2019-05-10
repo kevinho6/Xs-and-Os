@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Tic-Tac-Toe with AI.
 
-## Available Scripts
+(Note: Please wait a few seconds for Heroku to load because I am on the free plan)
 
-In the project directory, you can run:
+## Instructions to Run Locally
 
-### `npm start`
+In the project directory, you can run in separate terminal windows:
 
-Runs the app in the development mode.<br>
+###`node server.js` to start the Express Server
+###`npm start` to start the Webpack Development Server
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Introduction & Context
 
-### `npm test`
+My final project as a freshman was to create tic-tac-toe. Built and played on the terminal, it was a functional, but ugly game. 3 years later, I was inspired to revisit that project and to make it better based on what I've learned since then. I decided to  go with a React front-end because React is popular, fast and simple. I also decided to implement the minimax algorithm in game theory so that the computer could make the best choice for each move resulting in the computer either winning or tying the user.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Walkthrough
 
-### `npm run build`
+The site consists of a single page that contains the game board and the statistics portion. The statistics indicate how many times users have tied or lost against the computer since the inception of this project. The site follows a minimalist design to contradict the way modern games have stolen our attention by bombarding us with unnecessary details. The user is intended to play in either a normal fashion as a stress-reliever, or in a passive manner as they accept the fact that they will never be able to beat the computer and contemplate the rising sophistication of AI.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## User Feedback
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+For this project I started out by building the backend instead of the front-end. Because of this the user feedback that my demo prompted was limited. However, the feedback that I did receive was extremely helpful. Sumaia mentioned that she liked my simple site design which was refreshing to hear as it helped guide me to my site philsophy of mindfulness. More feedback that I received was that it wasn't clear that this is game against an AI instead of regular tic-tac-toe. That feedback gave me the idea of implementing the statistics portion to let the user know that without explicitly stating it. The overall statistics also serve to make the players think about the idea of collective intelligence, how other players have played against this computer and also lost, instead of thinking about each game from an individual perspective.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Code Overview
 
-### `npm run eject`
+I started this code from Create React App. From there I loosely followed the tutorial in the resource section for a quick refresher on the different React concepts such as unidirectional data flow, lifecycle methods, props and state. The front-end is served from a Webpack Development Server running on port 3000. After I had this baseline code, I added an Express server that ran on port 8080. This express server contains two routes: a route for GET and PUT requests. The GET request route serves up the statistics data (ties and losses) stored in the file stats.json. The PUT request looks at the URL route parameter and determines whether it should add a tie or a loss to the statistics data. The routes then return the data to the front-end to be displayed to the user. After I had the game and the statistics, I added the AI portion by adding the Minimax function which recursively tries every possible move and returns the best move that the computer can make in order to win. Because the tutorial was for a player vs. player tic-tac-toe I had to modify a good portion of the code to make it player vs. computer. Lastly, I ran some tests, encountered some bugs, fixed them and ultimately deployed the project to Heroku. To deploy this project I created a production build using `npm run build` and served the static files from the Express server.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Closing Comments
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Overall, I'm satisfied with the results of this project. Along the way I definitely had difficulty deploying it due to the confusion of managing the two servers. My only wish for this project is that I had more time (as is the case for every project). If I did I would optimize the AI algorithm by making it more efficient and also provide the user the ability to change the design of the game.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Resources
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Boilerplate Code - https://github.com/facebook/create-react-app
+Starter Tutorial - https://reactjs.org/tutorial/tutorial.html
+Minimax Algorithm - https://medium.freecodecamp.org/how-to-make-your-tic-tac-toe-game-unbeatable-by-using-the-minimax-algorithm-9d690bad4b37 https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/
+Deployment - https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/ https://dev.to/loujaybee/using-create-react-app-with-express
