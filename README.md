@@ -47,7 +47,7 @@ I started this code from Create React App. From there I loosely followed the tut
 
 ## Closing Comments
 
-Overall, I'm satisfied with the results of this project. Along the way I definitely had difficulty deploying it due to the confusion of managing the two servers. My only wish for this project is that I had more time (as is the case for every project). If I did I would optimize the AI algorithm by making it more efficient and also provide the user the ability to change the design of the game.
+Overall, I'm satisfied with the results of this project. Along the way I definitely had difficulty deploying it due to the confusion of managing the two servers. My only wish for this project is that I had more time (as is the case for every project). If I did I would optimize the AI algorithm by making it more efficient. I would also provide the user the ability to change the design of the game. Lastly, I would save the statistics data into a database instead of overwriting a file because Heroku does not allow for file changes.
 
 ## Resources
 
